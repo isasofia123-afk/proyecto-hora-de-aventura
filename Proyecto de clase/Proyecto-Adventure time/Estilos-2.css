@@ -1,0 +1,783 @@
+/* ==========================================================================
+   1. VARIABLES, RESET Y AJUSTES DE PANTALLA (VIEWPORT) - CON SCROLL
+   ========================================================================== */
+:root {
+    --borde-gordo: #2b2b2b;
+    --texto-color: #2b2b2b;
+    --amarillo-jake: #ffd166;
+    --rosa-bonnibel: #ffc2d1;
+    --azul-ooo: #bae1ff;
+    --verde-arbol: #a7ffeb;
+    --bultos-morado: #d6c7ff;
+}
+
+
+body {
+    font-family: Arial;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden; 
+}
+
+.app-view {
+    width: 100vw;
+    min-height: 100vh;
+    overflow-y: auto; 
+    overflow-x: hidden;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;     
+    padding: 30px 15px; 
+    box-sizing: border-box;
+}
+
+/* ==========================================================================
+   2. PANTALLA DE INICIO (ESTILOS COMPLETOS DE FONDO Y BOTÓN)
+   ========================================================================== */
+#view-inicio {
+    background-image: url("imagenes/fondo de ooo.jpg");
+    background-size: cover;        /* Fuerza a la imagen a cubrir TODA la pantalla */
+    background-position: center;   /* Centra el paisaje para que no se corte feo */
+    background-repeat: no-repeat;  /* Evita que se duplique como un mosaico */
+    width: 100vw;
+    height: 100vh;
+}
+   
+.splash-screen {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end; 
+    align-items: center;    
+    width: 100%;
+    height: 100%;
+    padding: 20px 20px 60px 20px; 
+    box-sizing: border-box;
+}
+
+.button-container {
+    width: 100%;
+    display: flex;
+    justify-content: center; 
+}
+
+.btn-aventura {
+    font-family: 'Arial Black', sans-serif; 
+    font-weight: 900;
+    font-size: 1.3rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #2b2b2b;                 
+     background-color: #ffd166;      
+    padding: 16px 40px;             
+    max-width: 350px;              
+    border: 4px solid #2b2b2b;     
+    border-radius: 16px;            
+    cursor: pointer;
+    box-shadow: 0px 6px 0px #2b2b2b;
+    outline: none;
+    transition: transform 0.05s ease, box-shadow 0.05s ease;
+}
+
+.btn-aventura:hover {
+    background-color: #ffc247;      
+}
+
+.btn-aventura:active {
+    transform: translateY(4px);     
+    box-shadow: 0px 2px 0px #2b2b2b;
+}
+
+/* ==========================================================================
+   3. SECCIÓN DE REGISTRO (FORMULARIO ESTILO CÓMIC)
+   ========================================================================== */
+
+/* ===== 1. FONDO DE LA PANTALLA DE REGISTRO ===== */
+#view-registro {
+    background-image: url("imagenes/fondo de registro.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 100vw;
+    min-height: 100vh;
+    overflow-y: auto; 
+    padding: 40px 15px; 
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* ===== 2. TARJETA CENTRAL DEL FORMULARIO ===== */
+.central-card {
+    background-color: #EEEEEE;
+    border: 4px solid var(--borde-gordo);
+    border-radius: 20px;
+    padding: 25px 20px;
+    box-shadow: 8px 8px 0px var(--borde-gordo); 
+    width: 100%;
+    max-width: 420px; 
+    margin: auto; 
+}
+
+/* ===== 3. TEXTOS INTRODUCTORIOS ===== */
+.central-card p {
+    font-weight: bold;
+    font-size: 0.95rem;
+    line-height: 1.4;
+    margin-bottom: 22px;
+    color: #2b2b2b;
+    text-align: center; 
+}
+
+/* ===== 4. GRUPOS DE CAMPOS (FILAS) ===== */
+.field-group {
+    margin-bottom: 20px;
+    text-align: left;
+    width: 100%;
+}
+
+.field-group label {
+    display: block;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+    font-weight: 900;
+    color: #2b2b2b;
+    letter-spacing: 0.5px;
+}
+
+/* ===== 5. INPUTS Y SELECTS GORDOTES ===== */
+.field-group input[type="text"],
+.field-group select {
+    width: 100%;
+    padding: 12px;
+    font-family: sans-serif;
+    font-weight: bold;
+    font-size: 0.95rem;
+    border: 3px solid var(--borde-gordo);
+    border-radius: 12px;
+    background-color: #fffde7; 
+    color: #2b2b2b;
+    outline: none;
+    box-sizing: border-box;
+    transition: border-color 0.2s ease, background-color 0.2s ease;
+}
+
+.field-group input[type="text"]:focus,
+.field-group select:focus {
+    background-color: #ffffff; 
+    border-color: #000000;     
+}
+
+/* ===== 6. PERSONALIZACIÓN DE LOS RADIO BUTTONS (GÉNERO / REINOS) ===== */
+.radio-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-top: 6px;
+}
+
+.field-group input[type="radio"] {
+    margin-right: 8px;
+    transform: scale(1.25); 
+    accent-color: var(--amarillo-jake);
+    cursor: pointer;
+}
+
+.field-group input[type="radio"] + label {
+    display: inline-block;
+    text-transform: none; 
+    font-weight: bold;
+    font-size: 0.95rem;
+    cursor: pointer;
+    margin-bottom: 0; 
+    color: #2b2b2b;
+}
+
+.view-header h1, h1 {
+    font-family: 'Arial Black', 'Impact', sans-serif;
+    font-weight: 900;
+    text-transform: uppercase;
+    color: var(--amarillo-jake);
+    font-size: 1.8rem;
+    text-align: center;
+    margin: 20px 0 10px 0;
+    letter-spacing: 1px;
+    
+    /* Efecto de borde negro de la serie */
+    text-shadow: 
+        -2px -2px 0 var(--borde-gordo),  
+         2px -2px 0 var(--borde-gordo),
+        -2px  2px 0 var(--borde-gordo),
+         2px  2px 0 var(--borde-gordo),
+         4px  4px 0 var(--borde-gordo);
+}
+
+/* ===== 7. CONTENEDOR Y BOTÓN DE REGISTRO (CORREGIDO PARA TU HTML) ===== */
+.btn-main-up {
+    font-family: 'Arial Black', sans-serif; 
+    font-weight: 900;
+    font-size: 1.05rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: #2b2b2b;            
+    background-color: #ffd166; 
+    padding: 14px 30px;        
+    width: 100%;               
+    max-width: 280px;          
+    border: 3px solid #2b2b2b; 
+    border-radius: 12px;       
+    cursor: pointer;
+    display: block;
+    margin: 25px auto 0 auto;  
+    box-shadow: 0px 5px 0px #2b2b2b;
+    outline: none;
+    transition: transform 0.05s ease, box-shadow 0.05s ease;
+}
+
+
+.btn-main-up:hover {
+    background-color: #ffc247; 
+}
+
+.btn-main-up:active {
+    transform: translateY(3px);      
+    box-shadow: 0px 2px 0px #2b2b2b; 
+}
+
+/* ==========================================================================
+   3. MENÚ PRINCIPAL EN CUADRÍCULA 
+   ========================================================================== */
+/* ===== MENÚ ===== */
+#view-menu {
+    background-image: url("imagenes/fondo\ de\ menu.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 100vw;
+    min-height: 100vh;
+}
+
+.menu-grid {
+    display: flex;
+    flex-direction: column;   
+    justify-content: center;  
+    align-items: center;      
+    gap: 20px;                
+    width: 100%;
+    max-width: 400px;         
+    margin: 20px auto 0 auto; 
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+/* ===== 2. ESTILO BASE DE LOS BOTONES ===== */
+.menu-item, 
+.btn-menu {
+    font-family: 'Arial Black', sans-serif; 
+    font-weight: 900;
+    font-size: 1.1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: #2b2b2b;            
+    padding: 16px 20px;
+    border: 4px solid var(--borde-gordo);
+    border-radius: 16px;
+    cursor: pointer;
+    text-align: center;
+    width: 100%;               
+    max-width: 320px;         
+    box-shadow: 0px 6px 0px var(--borde-gordo);
+    outline: none;
+    transition: transform 0.05s ease, box-shadow 0.05s ease, filter 0.2s ease;
+}
+
+/* ===== 3. EFECTO BRILLANTE CON DEGRADADOS DE LUZ ===== */
+
+.menu-item:nth-child(1) { 
+    background: linear-gradient(to bottom, rgba(255,255,255,0.4) 0%, rgba(255,255,255,0) 50%), var(--rosa-bonnibel);
+}
+
+.btn-menu {
+    background: linear-gradient(to bottom, rgba(255,255,255,0.4) 0%, rgba(255,255,255,0) 50%), var(--azul-ooo); 
+}
+
+.menu-item:nth-child(3) { 
+    background: linear-gradient(to bottom, rgba(255,255,255,0.4) 0%, rgba(255,255,255,0) 50%), var(--bultos-morado); 
+}
+
+/* ===== 4. INTERACCIONES (RATÓN Y CLIC) ===== */
+.menu-item:hover,
+.btn-menu:hover {
+    filter: brightness(1.1);
+}
+
+.menu-item:active,
+.btn-menu:active {
+    transform: translateY(4px);
+    box-shadow: 0px 2px 0px var(--borde-gordo);   
+}
+
+/* ==========================================================================
+   4.SECCION DE PERSONAJES
+   ========================================================================== */
+/* ===== PERSONAJES ===== */
+#view-personajes {
+    background-image: url("imagenes/fondo\ de\ personajes.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 100vw;
+    min-height: 100vh;
+}
+
+.characters-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+    padding: 10px 0;
+}
+
+.char-card {
+    background-color: transparent;
+    width: 135px;
+    height: 200px;
+    perspective: 1000px;
+}
+
+.char-card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    transform-style: preserve-3d;
+    border: 3px solid var(--borde-gordo);
+    border-radius: 15px;
+    box-shadow: 4px 4px 0px var(--borde-gordo);
+}
+
+.char-card:hover .char-card-inner,
+.char-card:active .char-card-inner {
+    transform: rotateY(180deg);
+}
+
+.char-card-front, .char-card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    border-radius: 11px;
+    display: flex;
+    flex-direction: column;
+    padding: 8px;
+    box-sizing: border-box;
+}
+
+.char-card-front {
+    background-color: #F8F4EC;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.char-img-box {
+    width: 100%;
+    height: 75%;
+    overflow: hidden;
+    border-radius: 8px;
+    border: 2px solid var(--borde-gordo);
+    background-color: #f5f5f5;
+}
+
+.char-img-box img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.char-card-front h3 {
+    font-size: 0.75rem;
+    margin: 4px 0 0 0;
+    text-transform: uppercase;
+    font-weight: 900;
+}
+
+.char-card-back {
+    background-color: #fff9db;
+    transform: rotateY(180deg);
+    justify-content: center;
+    align-items: center;
+}
+
+.char-card-back h3 {
+    font-size: 0.9rem;
+    margin: 0 0 5px 0;
+    border-bottom: 2px solid var(--borde-gordo);
+    padding-bottom: 2px;
+}
+
+.char-card-back p {
+    font-family: sans-serif;
+    font-weight: bold;
+    font-size: 0.68rem;
+    line-height: 1.2;
+    margin: 0;
+    text-align: center;
+}
+
+/* ===== 3. REORGANIZACIÓN Y BRILLO DEL BOTÓN VOLVER (CORREGIDO) ===== */
+.btn-back {
+    font-family: 'Arial Black', sans-serif;
+    font-weight: 900;
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: #2b2b2b;             
+    background: linear-gradient(to bottom, rgba(255,255,255,0.4) 0%, rgba(255,255,255,0) 50%), #33b5e5; 
+    padding: 14px 30px;
+    display: block;
+    width: 85%;
+    max-width: 280px;            
+    margin: 30px auto 10px auto; 
+    border: 4px solid var(--borde-gordo);
+    border-radius: 15px;
+    cursor: pointer;
+    text-align: center;
+    box-shadow: 0px 5px 0px var(--borde-gordo); 
+    outline: none;
+    transition: transform 0.05s ease, box-shadow 0.05s ease, filter 0.2s ease;
+}
+
+
+.btn-back:hover {
+    filter: brightness(1.15);
+}
+
+
+.btn-back:active {
+    transform: translateY(3px);
+    box-shadow: 0px 2px 0px var(--borde-gordo);   
+}
+
+/* ==========================================================================
+   5. SECCIÓN DEL MAPA INTERACTIVO (MEJORADO Y COMPACTADO)
+   ========================================================================== */
+
+/* ===== 1. FONDO GENERAL (CORREGIDO) ===== */
+#view-reinos {
+    background-image: url("imagenes/fondo-de-mapa.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 100vw;
+    min-height: 100vh;
+    overflow-y: auto;
+    overflow-x: hidden;
+    
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    padding: 10px 15px 25px 15px; 
+}
+
+
+#view-reinos {
+    text-align: center;
+    margin-bottom: 5px; 
+    width: 100%;
+}
+
+/* ===== 2. CONTENEDOR ENVOLTORIO (REORGANIZADO CON FLEX) ===== */
+.map-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start; 
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto;
+    gap: 12px; 
+}
+/* ===== 3. EL CONTENEDOR DEL MAPA (UN PELÍN MÁS COMPACTO) ===== */
+.ooo-map {
+    position: relative;
+    width: 100%;
+    max-width: 700px; 
+    max-height: 45vh;
+    aspect-ratio: 16 / 7.5; 
+    border: 5px solid #2b2b2b;
+    border-radius: 20px;
+    box-shadow: 6px 6px 0px #2b2b2b;
+    overflow: hidden;
+    background-color: #e5d3b3; 
+    cursor: crosshair;
+}
+
+
+.map-bg {
+    width: 100%;
+    height: 100%;
+    object-fit: fill;
+    display: block;
+}
+
+.map-zone {
+    position: absolute; 
+    background: rgba(255,255, 255, 0) !important;
+    border: none;
+    cursor: pointer;
+    outline: none;
+    border-radius: 50%;
+    transition: background 0.2s ease;
+}
+
+
+.map-zone:hover {
+    background: rgba(255, 255, 255, 0.2); 
+}
+
+
+.kingdom-popup {
+    background-color: #fffde7; 
+    border: 3px solid #2b2b2b;
+    border-radius: 12px;
+    padding: 10px 20px; /* Reducimos padding interno vertical */
+    width: 90%;
+    max-width: 500px;
+    text-align: center;
+    box-shadow: 4px 4px 0px #2b2b2b;
+    box-sizing: border-box;
+}
+
+
+.kingdom-popup h3 {
+    font-family: 'Arial Black', sans-serif;
+    font-weight: 900;
+    font-size: 1.05rem;
+    margin: 0 0 4px 0; 
+    color: #2b2b2b;
+    text-transform: uppercase;
+}
+
+
+.kingdom-popup p {
+    font-family: sans-serif;
+    font-weight: bold;
+    font-size: 0.85rem;
+    line-height: 1.3; 
+    margin: 0;
+    color: #4a4a4a;
+}
+
+/* ===== 5. EL BOTÓN (RESCATADO Y CENTRADO) ===== */
+.nav-actions {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 5px; 
+}
+
+.nav-actions .btn-back-menu {
+    font-family: 'Arial Black', sans-serif;
+    font-weight: 900;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    color: #2b2b2b;
+    background: linear-gradient(to bottom, rgba(255,255,255,0.4) 0%, rgba(255,255,255,0) 50%), var(--azul-ooo);
+    padding: 10px 25px; 
+    width: 80%;
+    max-width: 240px;
+    border: 4px solid #2b2b2b;
+    border-radius: 12px;
+    cursor: pointer;
+    box-shadow: 0px 4px 0px #2b2b2b;
+    transition: transform 0.05s ease, box-shadow 0.05s ease;
+}
+
+
+.nav-actions .btn-back-menu:hover {
+    filter: brightness(1.1);
+}
+.nav-actions .btn-back.menu:active {
+    transform: translateY(3px);
+    box-shadow: 0px 1px 0px #2b2b2b;
+}
+
+/* ==========================================================================
+   6. SECCIÓN DE GALERÍA MULTIMEDIA 
+   ========================================================================== */
+
+/* ===== 1. FONDO GENERAL (Alinea todo al centro de la pantalla) ===== */
+#view-galeria {
+    background-image: url("imagenes/fondo-de-galeria.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 100vw;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; 
+    align-items: center;
+    box-sizing: border-box;
+    padding: 20px 15px;
+}
+
+/* ===== 2. ESTILO PARA EL H2 (Tu título de la galería) ===== */
+#view-galeria h2 {
+    font-family: 'Arial Black', sans-serif;
+    font-weight: 900;
+    font-size: 1.0rem;
+    color: #2b2b2b;
+    text-transform: uppercase;
+    background-color: #fffde7;
+    padding: 8px 20px;
+    border: 4px solid #2b2b2b;
+    border-radius: 12px;
+    box-shadow: 4px 4px 0px #2b2b2b;
+    width: fit-content;      
+    margin: 0 auto 15px auto; 
+    display: block;         
+}
+/* ===== 3. CONTENEDOR DEL CARRUSEL (MÁS CENTRADO) ===== */
+.carousel-container {
+    width: 100%;
+    max-width: 550px; 
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    background-color: rgba(255, 255, 255, 0.85); 
+    border: 5px solid #2b2b2b;
+    border-radius: 20px;
+    box-shadow: 6px 6px 0px #2b2b2b;
+    margin: 10px auto; 
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+
+.carousel-container::-webkit-scrollbar {
+    display: none; 
+}
+
+/* ===== 4. RUTA / TRACK ===== */
+.carousel-track {
+    display: flex;
+    gap: 10px;
+}
+
+/* ===== 5. ELEMENTOS (SLIDES) ===== */
+.carousel-item {
+    flex: 0 0 100%;
+    width: 100%;
+    height: 240px; 
+    scroll-snap-align: center;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 12px;
+    background-color: #000;
+}
+
+/* ===== 6. MULTIMEDIA ===== */
+.photo-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.video-item iframe {
+    width: 100% !important;
+    height: 100% !important;
+    border: none;
+    display: block;
+}
+
+/* ===== 7. TEXTO DE AYUDA (HINT) ===== */
+.hint {
+    text-align: center;
+    font-family: 'Arial Black', sans-serif;
+    font-weight: 900;
+    font-size: 0.65rem;
+    color: #2b2b2b;
+    background-color: #fffde7;
+    padding: 6px 15px;
+    border: 3px solid #2b2b2b;
+    border-radius: 8px;
+    box-shadow: 3px 3px 0px #2b2b2b;
+    text-transform: uppercase;
+    width: fit-content;       
+    display: block;           
+    margin: 12px auto 15px auto; 
+}
+
+/* ==========================================================================
+   7.MODAL PERSONALIZADO (POP-UP)
+   ========================================================================== */
+  .modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    padding: 20px;
+}
+
+.modal-box {
+    background-color: #fffdf0;
+    border: 4px solid var(--borde-gordo);
+    border-radius: 20px;
+    width: 100%;
+    max-width: 340px;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 6px 6px 0px var(--borde-gordo);
+    animation: saltarIn 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.modal-header {
+    font-size: 1.1rem;
+    color: #ff5252;
+    margin-bottom: 12px;
+}
+
+.modal-body p {
+    font-family: sans-serif;
+    font-weight: bold;
+    font-size: 0.95rem;
+    line-height: 1.4;
+    margin: 0 0 20px 0;
+}
+
+.btn-modal {
+    font-family: 'Arial Black', sans-serif;
+    background-color: var(--amarillo-jake);
+    border: 3px solid var(--borde-gordo);
+    border-radius: 12px;
+    padding: 10px 25px;
+    cursor: pointer;
+    font-weight: 900;
+    box-shadow: 3px 3px 0px var(--borde-gordo);
+}
+
+.btn-modal:active {
+    transform: translate(2px, 2px);
+    box-shadow: 1px 1px 0px var(--borde-gordo);
+}
+
+@keyframes saltarIn {
+    0% { transform: scale(0.6); opacity: 0; }
+    100% { transform: scale(1); opacity: 1; }
+} 

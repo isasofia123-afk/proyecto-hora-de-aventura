@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Explora Ooo</title>
+  <link rel="stylesheet" href="Estilos-2.css">
+</head>
+
+<body>
+  <div class="app-container">
+
+    <!-- ÁREA DE CONTENIDO (Viewport) -->
+    <main class="viewport">
+
+      <!-- 1. PANTALLA DE INICIO -->
+<section id="view-inicio" class="app-view">
+  <div class="splash-screen">
+
+
+
+    <div class="button-container">
+      <button class="btn-aventura" onclick="showView('view-registro')">¡A LA AVENTURA!</button>
+    </div>
+
+  </div>
+</section>
+
+<!-- 2. PANTALLA DE REGISTRO (Antes del menú) -->
+<section id="view-registro" class="app-view" style="display: none;">
+    <div class="view-header"><h1>Inscripción de Aventurero</h1></div>
+    <div class="scrollable-content">
+        <form id="form-registro" class="central-card">
+           <p>Dinos quién eres antes de explorar Ooo:</p>
+            
+            <!-- Nombre -->
+            <div class="field-group">
+                <label>Nombre del Héroe:</label>
+                <input type="text" id="nombre-input" placeholder="Ej: Finn, Fionna...">
+            </div>
+
+            <!-- Tipo de Héroe (NUEVO) -->
+            <div class="field-group">
+                <label>¿Qué tipo de héroe eres?</label>
+                <select id="tipo-heroe">
+                    <option value="Guerrero">⚔️ Guerrero (Valiente y fuerte)</option>
+                    <option value="Mago">🔮 Mago (Sabio y místico)</option>
+                    <option value="Vampiro">🎸 Vampiro (Cool y musical)</option>
+                    <option value="Científico">🧪 Científico (Inteligente y curioso)</option>
+                    <option value="Realeza">👑 Realeza (Líder y diplomático)</option>
+                </select>
+            </div>
+
+            <div class="field-group">
+              <label for="reino-input">¿A qué reino perteneces?</label>
+              <input type="radio" id="Dulce Reino" name="reino" value="Dulce Reino">
+              <label for="Dulce Reino">Dulce Reino</label><br>
+
+              <input type="radio" id="Reino Helado" name="reino" value="Reino Helado">
+              <label for="Reino Helado">Reino Helado</label><br>
+
+              <input type="radio" id="Espacio Bultos" name="reino" value="Espacio Bultos">
+              <label for="Espacio Bultos">Espacio Bultos</label><br>
+
+            </div>
+
+            <button type="button" class="btn-main-up" onclick="procesarRegistro()">¡REGISTRARME!</button>
+        </form>
+    </div>
+</section>
+
+<!-- 3. PANTALLA DE MENÚ (Ahora es la tercera) -->
+<section id="view-menu" class="app-view" style="display: none;">
+    <div class="view-header"><h1>Bienvenido, <span id="nombre-display">Aventurero</span></h1></div>
+    <div class="scrollable-content">
+        <div class="menu-grid">
+            <button class="menu-item" onclick="showView('view-personajes')">⚔️ Personajes</button>
+            <button class="btn-menu" onclick="showView('view-reinos')">🗺️ EXPLORAR EL MAPA</button>
+            <button class="menu-item" onclick="showView('view-galeria')">🖼️ Galería</button>
+        </div>
+    </div>
+</section>
+
+<!--4.Personajes-->
+<section id="view-personajes" class="app-view" style="display: none;">
+  <div class="view-header">
+    <h1>Héroes de Ooo</h1>
+  </div>
+
+  <div class="scrollable-content">
+    <div class="characters-container">
+      
+      <div class="char-card">
+        <div class="char-card-inner">
+          <div class="char-card-front">
+            <div class="char-img-box">
+              <img src="imagenes/Tarjeta finn .jpg" alt="Finn el Humano">
+            </div>
+            <h3>Finn el Humano</h3>
+          </div>
+          <div class="char-card-back">
+            <h3>Finn ⚔️</h3>
+            <p>Un gran héroe de gran corazón que siempre ayuda a quien lo necesita y protege a toda la Tierra de Ooo.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="char-card">
+        <div class="char-card-inner">
+          <div class="char-card-front">
+            <div class="char-img-box">
+              <img src="imagenes/tarjeta Jake.jpg" alt="Jake el Perro">
+            </div>
+            <h3>Jake el Perro</h3>
+          </div>
+          <div class="char-card-back">
+            <h3>Jake 🐶</h3>
+            <p>El perro mágico con poderes de estiramiento y el mejor hermano adoptivo y compañero de aventuras.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="char-card">
+        <div class="char-card-inner">
+          <div class="char-card-front">
+            <div class="char-img-box">
+              <img src="imagenes/Tarjeta Marceline.jpg" alt="Marceline">
+            </div>
+            <h3>Marceline</h3>
+          </div>
+          <div class="char-card-back">
+            <h3>Marceline 🎸</h3>
+            <p>La reina de los vampiros, apasionada del rock, que se alimenta del color rojo y tiene más de mil años.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="char-card">
+        <div class="char-card-inner">
+          <div class="char-card-front">
+            <div class="char-img-box">
+              <img src="imagenes/Tarjeta dulce princesa.jpg" alt="Dulce Princesa">
+            </div>
+            <h3>Dulce Princesa</h3>
+          </div>
+          <div class="char-card-back">
+            <h3>Bonnibel 🍬</h3>
+            <p>La gobernanta e inteligente científica del Dulce Reino, creadora de los dulces ciudadanos.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="char-card">
+        <div class="char-card-inner">
+          <div class="char-card-front">
+            <div class="char-img-box">
+              <img src="imagenes/Tarjeta Acoiris.jpg" alt="Arcoíris">
+            </div>
+            <h3>Arcoíris</h3>
+          </div>
+          <div class="char-card-back">
+            <h3>Arcoíris 🦄</h3>
+            <p>Es una criatura mitad arcoíris, mitad unicornio, novia de Jake, que se comunica hablando coreano.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="char-card">
+        <div class="char-card-inner">
+          <div class="char-card-front">
+            <div class="char-img-box">
+              <img src="imagenes/Tarjeta Rey helado.jpg" alt="Rey Helado">
+            </div>
+            <h3>Rey Helado</h3>
+          </div>
+          <div class="char-card-back">
+            <h3>Simon ❄️</h3>
+            <p>Gobernante de la Tierra de Hielo. Su corona mágica le da poderes de hielo a costa de su cordura.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="char-card">
+        <div class="char-card-inner">
+          <div class="char-card-front">
+            <div class="char-img-box">
+              <img src="imagenes/Tarjeta gunter.jpg" alt="Gunter">
+            </div>
+            <h3>Gunter</h3>
+          </div>
+          <div class="char-card-back">
+            <h3>Gunter 🐧</h3>
+            <p>El tierno pingüino compañero del Rey Helado, que esconde una identidad alienígena muy destructiva.</p>
+          </div>
+        </div>
+      </div>
+
+    </div> 
+    <div class="nav-actions">
+      <button class="btn-back" onclick="showView('view-menu')">⬅ VOLVER AL MENÚ</button>
+    </div>
+  </div>
+</section>
+
+<!--5.mapa-->
+<section id="view-reinos" class="app-view" style="display: none;">
+    <div class="view-header">
+        <h1>Mapa de Ooo</h1>
+        <p id="mensaje-reino-origen" class="sub-msg"></p>
+    </div>
+    
+    <div class="scrollable-content map-wrapper">
+      <div class="ooo-map" id="mapa-interactivo">
+        <img src="imagenes/Mapa de tierra ooo.jpg" alt="Mapa de Ooo" class="map-bg">
+    
+        <button class="map-zone" data-reino="hielo" style="top: 15%; left: 19%; width: 14%; height: 26%;" 
+        title="Tierra de Hielo"></button>
+        <button class="map-zone" data-reino="chuche" style="top: 22%; left: 70%; width: 20%; height: 22%;"
+          title="Reino de Caramelo"></button>
+        <button class="map-zone" data-reino="fuego" style="top: 65%; left: 40%; width: 18%; height: 20%;"
+          title="Reino del Fuego"></button>
+        <button class="map-zone" data-reino="ooo" style="top: 48%; left: 45%; width: 15%; height: 15%;"
+          title="La Tierra de Ooo"></button>
+          <button class="map-zone" data-reino="arbol" style="top: 10%; left: 55%; width: 14%; height: 26%;" title="El Árbol Gigante"></button>
+      </div>
+
+        <div id="info-reino-box" class="kingdom-popup" style="display: none;">
+            <h3 id="popup-titulo">Selecciona un reino</h3>
+            <p id="popup-desc">Haz clic directamente sobre una región del mapa para explorar sus secretos.</p>
+        </div>
+
+        <div class="nav-actions">
+            <button class="btn-back-menu" onclick="showView('view-menu')">⬅ VOLVER AL MENÚ</button>
+        </div>
+    </div>
+</section>
+
+     <!-- 6. GALERÍA -->
+<section id="view-galeria" class="app-view" style="display: none;">
+    <div class="view-header">
+        <h1>Momentos Épicos</h1>
+    </div>
+    
+    <div class="scrollable-content gallery-wrapper">
+        
+        <h2 class="section-title">📸 Álbum Fotográfico</h2>
+        <div class="carousel-container">
+            <div class="carousel-track">
+                <div class="carousel-item photo-item">
+                    <img src="imagenes/fin y jake.jpg" alt="Finn y Jake">
+                </div>
+                <div class="carousel-item photo-item">
+                    <img src="imagenes/Rey helado.jpg" alt="Rey Helado">
+                </div>
+                <div class="carousel-item photo-item">
+                    <img src="imagenes/dulce princesa.jpg" alt="Dulce Princesa">
+                </div>
+                <div class="carousel-item photo-item">
+                    <img src="imagenes/arcoiris.jpg" alt="Arcoíris">
+                </div>
+                <div class="carousel-item photo-item">
+                    <img src="imagenes/limon agrio.jpg" alt="limon agrio">
+                </div>
+                <div class="carousel-item photo-item">
+                    <img src="imagenes/princesa grumosa.jpg" alt="Princesa grumosa">
+                </div>
+            </div>
+        </div>
+        <p class="hint">↔ Desliza las fotos / Mantén pulsado para ampliar ↔</p>
+
+
+        <h2 class="section-title">🎬 Clips de Vídeo</h2>
+        <div class="carousel-container video-container-fix">
+            <div class="carousel-track">
+                <div class="carousel-item video-item">
+                    <iframe src="https://www.youtube.com/embed/h28xpNvW9Yw" title="YouTube video player" 
+                            frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+                <div class="carousel-item video-item">
+                    <iframe src="https://www.youtube.com/embed/VZfTqErFRTk" title="YouTube video player" 
+                            frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+            </div>
+        </div>
+        <p class="hint">↔ Desliza para cambiar de vídeo ↔</p>
+
+
+        <div class="nav-actions">
+            <button class="btn-back" onclick="showView('view-menu')">⬅ VOLVER AL MENÚ</button>
+        </div>
+
+    </div>
+</section>
+
+<div id="custom-modal" class="modal-overlay" style="display: none;">
+    <div class="modal-box">
+        <div class="modal-header">⚔️ ¡ATENCIÓN HÉROE! ⚔️</div>
+        <div class="modal-body">
+            <p id="modal-message">¡Un héroe necesita un nombre!</p>
+        </div>
+        <div class="modal-footer">
+            <button class="btn-modal" onclick="closeModal()">ACEPTAR</button>
+        </div>
+    </div>
+</div>
+
+  <script src="script.js"></script> 
+</body>
+
+</html>
