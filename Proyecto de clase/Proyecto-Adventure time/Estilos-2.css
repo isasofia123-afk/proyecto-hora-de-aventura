@@ -250,7 +250,7 @@ body {
 }
 
 /* ==========================================================================
-   3. MENÚ PRINCIPAL EN CUADRÍCULA 
+   4. MENÚ PRINCIPAL EN CUADRÍCULA 
    ========================================================================== */
 /* ===== MENÚ ===== */
 #view-menu {
@@ -296,6 +296,33 @@ body {
     transition: transform 0.05s ease, box-shadow 0.05s ease, filter 0.2s ease;
 }
 
+/* 1. Contenedor del botón para separarlo de la cuadrícula */
+.nav-return-up {
+    display: flex;
+    justify-content: center; /* Centra el botón horizontalmente */
+    margin-top: 35px;        /* Separa el botón de los botones de arriba */
+    padding-bottom: 15px;    /* Deja espacio libre por abajo */
+}
+
+/* 2. Diseño del botón estilo "Cartoon" */
+.boton-regreso {
+    background-color: #ffcd00;   /* Amarillo divertido (Estilo Jake) */
+    color: #2c3e50;              /* Texto oscuro y legible */
+    font-size: 0.95rem;
+    font-weight: bold;
+    padding: 10px 22px;
+    border: 3px solid #2c3e50;   /* Borde grueso tipo dibujo animado */
+    border-radius: 10px;         /* Esquinas redondeadas suaves */
+    cursor: pointer;
+    box-shadow: 0 4px 0 #2c3e50; /* Sombra sólida abajo para dar efecto 3D de botón */
+    transition: all 0.1s ease;
+}
+
+/* 3. Efecto visual al hacer clic */
+.boton-regreso:active {
+    transform: translateY(3px);  /* El botón se hunde un poquito */
+    box-shadow: 0 1px 0 #2c3e50; /* La sombra se achica al pisarlo */
+}
 /* ===== 3. EFECTO BRILLANTE CON DEGRADADOS DE LUZ ===== */
 
 .menu-item:nth-child(1) { 
@@ -323,7 +350,7 @@ body {
 }
 
 /* ==========================================================================
-   4.SECCION DE PERSONAJES
+   5.SECCION DE PERSONAJES
    ========================================================================== */
 /* ===== PERSONAJES ===== */
 #view-personajes {
@@ -465,7 +492,7 @@ body {
 }
 
 /* ==========================================================================
-   5. SECCIÓN DEL MAPA INTERACTIVO (MEJORADO Y COMPACTADO)
+   6. SECCIÓN DEL MAPA INTERACTIVO (MEJORADO Y COMPACTADO)
    ========================================================================== */
 
 /* ===== 1. FONDO GENERAL (CORREGIDO) ===== */
@@ -609,7 +636,7 @@ body {
 }
 
 /* ==========================================================================
-   6. SECCIÓN DE GALERÍA MULTIMEDIA 
+   7. SECCIÓN DE GALERÍA MULTIMEDIA 
    ========================================================================== */
 
 /* ===== 1. FONDO GENERAL (Alinea todo al centro de la pantalla) ===== */
@@ -719,7 +746,7 @@ body {
 }
 
 /* ==========================================================================
-   7.MODAL PERSONALIZADO (POP-UP)
+   8.MODAL PERSONALIZADO (POP-UP)
    ========================================================================== */
   .modal-overlay {
     position: fixed;

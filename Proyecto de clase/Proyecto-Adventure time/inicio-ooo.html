@@ -71,14 +71,19 @@
 
 <!-- 3. PANTALLA DE MENÚ (Ahora es la tercera) -->
 <section id="view-menu" class="app-view" style="display: none;">
-    <div class="view-header"><h1>Bienvenido, <span id="nombre-display">Aventurero</span></h1></div>
-    <div class="scrollable-content">
-        <div class="menu-grid">
-            <button class="menu-item" onclick="showView('view-personajes')">⚔️ Personajes</button>
-            <button class="btn-menu" onclick="showView('view-reinos')">🗺️ EXPLORAR EL MAPA</button>
-            <button class="menu-item" onclick="showView('view-galeria')">🖼️ Galería</button>
-        </div>
+  <div class="view-header">
+    <h1>Bienvenido, <span id="nombre-display">Aventurero</span></h1>
+  </div>
+  <div class="scrollable-content">
+    <div class="menu-grid">
+      <button class="menu-item" onclick="showView('view-personajes')">⚔️ Personajes</button>
+      <button class="btn-menu" onclick="showView('view-reinos')">🗺️ EXPLORAR EL MAPA</button>
+      <button class="menu-item" onclick="showView('view-galeria')">🖼️ Galería</button>
     </div>
+    <div class="nav-return-up">
+            <button onclick="showView('view-registro')" class="boton-regreso">🔙 Volver al Formulario</button>
+        </div>
+  </div>
 </section>
 
 <!--4.Personajes-->

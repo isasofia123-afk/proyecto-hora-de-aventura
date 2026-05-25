@@ -136,3 +136,11 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 });
+
+function regresarAlFormulario() {
+    // Ocultamos el apartado del menú
+    document.getElementById('apartado-menu').style.display = 'none';
+    
+    // Mostramos el apartado del formulario
+    document.getElementById('apartado-formulario').style.display = 'block';
+}
